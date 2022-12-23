@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class Resource : MonoBehaviour
 {
+
+
+
     private Building parentBuilding;
 
     public void Spawn(Building building)

@@ -3,13 +3,17 @@ using UnityEngine;
 
 public class Building : MonoBehaviour
 {
-    [Header("Components"), SerializeField]
+    [Header("Components")]
+    [SerializeField]
     private SpriteRenderer spriteRenderer;
     [SerializeField]
-    private Resource resourcePrefab;
+    private BuildingType _buildingType;
 
     [HideInInspector]
     public Vector2Int size = Vector2Int.one;
+
+
+    private Resource resourcePrefab;
 
     private void OnDrawGizmosSelected()
     {
@@ -23,16 +27,11 @@ public class Building : MonoBehaviour
         }
     }
 
+    //public void Set
+
     public void SetAvailableColor(bool available)
     {
-        if (!available)
-        {
-            spriteRenderer.material.color = Color.red;
-        }
-        else
-        {
-            spriteRenderer.material.color = Color.green;
-        }
+        spriteRenderer.material.color = available ? Color.green : Color.red;
     }
 
     public bool IsBuildingInCameraView()
